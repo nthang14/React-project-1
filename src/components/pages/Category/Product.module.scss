@@ -1,0 +1,14 @@
+.product-button-quick-view {
+  bottom: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: animationQuickView 0.5s 1;
+}
+@keyframes animationQuickView {
+  from {
+    bottom: 0%;
+  }
+  to {
+    bottom: 30;
+  }
+}

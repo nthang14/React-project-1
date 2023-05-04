@@ -1,21 +1,81 @@
 @import 'normalize.css';
-@import url('https://fonts.googleapis.com/css2?family=Asap:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 :root {
-  --primary: #fe2c55;
+  --primary: #231f20;
+  --grey: #f8f9fa;
+  --yellow: #f9a252;
+  --orange: #eb8923;
+  --white: #ffffff;
+  --gray: #d1d5db;
+  --red: #e30044;
 }
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-weight: 700;
+  font-family: 'Nunito', sans-serif;
+  color: var(--primary);
+}
+a {
+  font-weight: 500;
+}
+div,
+span,
+p {
+  font-weight: 500;
 }
 html {
   font-size: 100px;
 }
 body {
-  font-family: 'Asap', sans-serif;
-  font-weight: 600;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
   font-size: 14px;
+  overflow: hidden;
+  overflow-y: auto;
+}
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.category__title {
+  font-size: 28px;
+}
+.category-product__image {
+  height: 280px;
+  width: auto;
+}
+.category-product__title {
+  font-size: 13px;
+}
+.text-one-line {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 1;
+}
+.modal-min-width {
+  min-width: 700px;
+}
+.modal-bg {
+  background-color: rgba(0, 0, 0, 0.5);
 }

@@ -1,0 +1,18 @@
+.mega-menu {
+  height: 44px;
+  border-bottom: var(--grey) 1px solid;
+  .mega-menu__item {
+    border-bottom: transparent 2px solid;
+    &:hover {
+      border-bottom: var(--primary) 2px solid;
+    }
+  }
+  .mega-menu__sub {
+    top: 44px;
+    left: 50%;
+    height: 100vh;
+    z-index: 999;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}

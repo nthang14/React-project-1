@@ -14,11 +14,11 @@ const publicRoutes = [
     component: CartPage,
   },
   {
-    path: '/category',
+    path: '/category/:slug',
     component: CategoryPage,
   },
   {
-    path: '/detail',
+    path: '/product/:id',
     component: DetailPage,
   },
   {
