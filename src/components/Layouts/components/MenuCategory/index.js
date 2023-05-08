@@ -11,17 +11,15 @@ function MenuCategory() {
   useEffect(() => {
     const fetchMenu = async () => {
       const data = await category.getAllCategory();
-      setMenu(data);
+      console.log('data', data.collections);
+      setMenu(data.collections);
     };
     fetchMenu();
   }, []);
 
-  const handleHoverMenu = (menuItem) => {
-    // setMenuActive(menuItem);
-  };
   let navigate = useNavigate();
   const handleClick = (item) => {
-    navigate(`/category/${item}`);
+    navigate(`/category/${item._id}`);
   };
   return (
     <div className={`${cx('mega-menu')} shadow-sm relative`} onMouseLeave={() => setMenuActive(null)}>
@@ -30,10 +28,10 @@ function MenuCategory() {
           return (
             <div
               onClick={() => handleClick(item)}
-              key={item}
+              key={item._id}
               className={`${cx(`mega-menu__item`)} capitalize py-0.5 mr-1.5 cursor-pointer font-bold`}
             >
-              {item}
+              {item.title}
             </div>
           );
         })}

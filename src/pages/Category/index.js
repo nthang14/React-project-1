@@ -7,16 +7,22 @@ function Category() {
   const { slug } = useParams();
   const [products, setProducts] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
+  const { params, setParams } = useState({
+    limit: 10,
+    page: 1,
+    sort: 'alphaAsc',
+  });
   useEffect(() => {
     const fetchProductByCategory = async () => {
-      const data = await productApi.getProductsByCategory(slug);
+      const data = await productApi.getProductsByCategory(slug, params);
       setProducts(data);
     };
     fetchProductByCategory();
   }, [slug]);
-  const handleQuickVIew = (product) => {
+  const handleQuickView = (product) => {
     setIsOpen(true);
   };
+  // const handleQuickView = useCallback(() => {}, []);
   return (
     <div className={`category-page container mx-auto pt-0.5`}>
       <div className={`grid grid-col-5 grid-flow-col gap-2 `}>
@@ -31,7 +37,7 @@ function Category() {
             {products &&
               products.length &&
               products.map((product) => {
-                return <Product key={product.id} product={product} handleQuickVIew={() => handleQuickVIew(product)} />;
+                return <Product key={product.id} product={product} handleQuickView={() => handleQuickView(product)} />;
               })}
           </div>
           <Modal visible={isOpen} close={() => setIsOpen(false)}>

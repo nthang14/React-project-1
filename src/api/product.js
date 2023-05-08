@@ -1,9 +1,9 @@
 import api from './index';
-const source_category = (handle) => `/products/category/${handle}`;
-
+const source_product = `/products`;
+const source_category = '/collections';
 const product = {
-  getProductsByCategory(collectionHandle) {
-    return api.get(source_category(collectionHandle));
+  getProductsByCategory(idCollection, params) {
+    return api.get(`${source_product}${source_category}/${idCollection}`, params);
   },
 };
 

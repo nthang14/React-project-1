@@ -3,7 +3,9 @@ import CartPage from '~/pages/Cart';
 import CategoryPage from '~/pages/Category';
 import DetailPage from '~/pages/Detail';
 import CheckoutPage from '~/pages/Checkout';
-import CheckoutLayout from '~/components/Layouts/CheckoutLayout';
+import EmptyLayout from '~/components/Layouts/EmptyLayout';
+
+import Login from '~/pages/Login';
 const publicRoutes = [
   {
     path: '/',
@@ -24,7 +26,12 @@ const publicRoutes = [
   {
     path: '/checkout',
     component: CheckoutPage,
-    layout: CheckoutLayout,
+    layout: EmptyLayout,
+  },
+  {
+    path: '/login',
+    component: Login,
+    layout: EmptyLayout,
   },
 ];
 const privateRoutes = {};

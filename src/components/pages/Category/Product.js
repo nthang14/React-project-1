@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBoltLightning } from '@fortawesome/free-solid-svg-icons';
 const cx = classNames.bind(styles);
 
-function Product({ product, handleQuickVIew }) {
+function Product({ product, handleQuickView }) {
   const navigate = useNavigate();
   const [isQuickView, setIsQuickVIew] = useState(false);
   return (
@@ -23,7 +23,7 @@ function Product({ product, handleQuickVIew }) {
         />
         {isQuickView && (
           <div className={`absolute z-50 ${cx('product-button-quick-view')}`}>
-            <Button classCustomize={`bg-gray text-black flex items-center justify-around`} onClick={handleQuickVIew}>
+            <Button classCustomize={`bg-gray text-black flex items-center justify-around`} onClick={handleQuickView}>
               <FontAwesomeIcon icon={faBoltLightning} />
               <div className="pl-px">Quick view</div>
             </Button>
