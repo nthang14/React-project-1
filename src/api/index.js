@@ -1,25 +1,23 @@
 import axios from 'axios';
 let access_token = null;
-
-if (!localStorage.getItem('access_token')) {
-  axios({
-    method: 'post',
-    url: 'https://accounts.lattehub.com/api/auth/login',
-    data: {
-      email: 'lappham1408@gmail.com',
-      password: 'Lappham1408',
-    },
-  }).then(({ data }) => {
-    localStorage.setItem('access_token', data.accessToken);
-    access_token = data.accessToken;
-  });
-} else {
-  access_token = localStorage.getItem('access_token');
-}
+// if (!localStorage.getItem('access_token')) {
+//   axios({
+//     method: 'post',
+//     url: 'https://accounts.lattehub.com/api/auth/login',
+//     data: {
+//       email: 'lappham1408@gmail.com',
+//       password: 'Lappham1408',
+//     },
+//   }).then(({ data }) => {
+//     localStorage.setItem('access_token', data.accessToken);
+//     access_token = data.accessToken;
+//   });
+// } else {
+//   access_token = localStorage.getItem('access_token');
+// }
 const api = axios.create({
-  baseURL: 'https://yaviber.lattehub.com/api',
+  baseURL: 'https://fakestoreapi.com',
   headers: {
-    Authorization: `Bearer ${access_token}`,
     'Content-Type': 'application/json',
   },
 });

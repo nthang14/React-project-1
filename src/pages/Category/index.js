@@ -3,18 +3,15 @@ import { useParams } from 'react-router-dom';
 import productApi from '~/api/product';
 import Product from '~/components/pages/Category/Product';
 import Modal from '~/components/common/Modal';
+import { useTranslation } from 'react-i18next';
+
 function Category() {
   const { slug } = useParams();
   const [products, setProducts] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
-  const { params, setParams } = useState({
-    limit: 10,
-    page: 1,
-    sort: 'alphaAsc',
-  });
   useEffect(() => {
     const fetchProductByCategory = async () => {
-      const data = await productApi.getProductsByCategory(slug, params);
+      const data = await productApi.getProductsByCategory(slug);
       setProducts(data);
     };
     fetchProductByCategory();
@@ -22,7 +19,7 @@ function Category() {
   const handleQuickView = (product) => {
     setIsOpen(true);
   };
-  // const handleQuickView = useCallback(() => {}, []);
+  const { t, i18n } = useTranslation(['home', 'category']);
   return (
     <div className={`category-page container mx-auto pt-0.5`}>
       <div className={`grid grid-col-5 grid-flow-col gap-2 `}>
@@ -30,7 +27,9 @@ function Category() {
           {slug && (
             <div className="bg-gray">
               <div className={`category__title capitalize font-bold p-0.5 pb-px`}>{slug}</div>
-              <div className="px-0.5 pb-0.5">{products.length} products</div>
+              <div className="px-0.5 pb-0.5">
+                {products.length} {t('product', { ns: 'category' })}
+              </div>
             </div>
           )}
           <div className={`pt-0.5 grid grid-cols-5 gap-0.5`}>

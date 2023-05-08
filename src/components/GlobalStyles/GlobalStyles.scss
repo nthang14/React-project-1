@@ -12,6 +12,9 @@
   --white: #ffffff;
   --gray: #d1d5db;
   --red: #e30044;
+  --error: #dc3545;
+  --info: #17a2b8;
+  --success: #28a745;
 }
 * {
   box-sizing: border-box;
@@ -78,4 +81,10 @@ body {
 }
 .modal-bg {
   background-color: rgba(0, 0, 0, 0.5);
+}
+.form__group {
+  padding: 5px 0px;
+}
+.form__error {
+  min-height: 22px;
 }

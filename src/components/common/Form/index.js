@@ -1,7 +1,10 @@
 import React from 'react';
-import { useForm } from 'react-hook-form';
-function Form({ defaultValues, children, onSubmit }) {
-  const { handleSubmit, register } = useForm({ defaultValues });
+function Form({ children, onSubmit, form }) {
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = form;
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       {React.Children.map(children, (child) => {
@@ -10,6 +13,7 @@ function Form({ defaultValues, children, onSubmit }) {
               ...{
                 ...child.props,
                 register,
+                errors,
                 key: child.props.name,
               },
             })

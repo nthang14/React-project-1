@@ -5,7 +5,6 @@ function Login() {
   };
   return (
     <div>
-      Login
       <LoginForm onSubmit={handleSubmit} />
     </div>
   );

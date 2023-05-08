@@ -5,9 +5,9 @@ const cx = classNames.bind(styles);
 function EmptyLayout({ children }) {
   const navigate = useNavigate();
   return (
-    <div className="bg-gray">
+    <div className="">
       <div className={`container mx-auto py-1.5 h-screen`}>
-        <div>
+        {/* <div>
           <div className="flex items-center justify-center">
             <img
               onClick={() => navigate('/')}
@@ -16,7 +16,7 @@ function EmptyLayout({ children }) {
               alt="logo"
             />
           </div>
-        </div>
+        </div> */}
         <div className="pt-2">{children}</div>
       </div>
     </div>

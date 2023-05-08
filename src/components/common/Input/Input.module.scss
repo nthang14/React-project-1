@@ -1,0 +1,27 @@
+.form__label {
+  display: block;
+  transition: all 0.3s;
+  transform: translateY(0rem);
+}
+
+.form__input {
+  color: #333;
+  margin: 0 auto;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+  border: none;
+  width: 100%;
+  display: block;
+  background-color: #f7f7f7;
+  &:focus-visible {
+    border: 0.5px var(--primary);
+  }
+}
+
+.form__input:placeholder-shown + .form__label {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: translateY(-4rem);
+  transform: translateY(-4rem);
+}
