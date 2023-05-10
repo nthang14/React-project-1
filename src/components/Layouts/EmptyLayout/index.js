@@ -5,7 +5,7 @@ const cx = classNames.bind(styles);
 function EmptyLayout({ children }) {
   const navigate = useNavigate();
   return (
-    <div className="">
+    <div className={`${cx('empty-layout')}`}>
       <div className={`container mx-auto py-1.5 h-screen`}>
         {/* <div>
           <div className="flex items-center justify-center">

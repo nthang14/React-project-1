@@ -1,3 +1,10 @@
 .header-logo__image {
   height: 0.32rem;
 }
+.empty-layout {
+  background-image: url('/assets/images/background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-blend-mode: multiply;
+  background-color: rgb(55 65 81/0.6);
+}

@@ -1,4 +1,5 @@
-function Select({ register, options, name, ...rest }) {
+function Select({ form, options, name, ...rest }) {
+  const { register } = form;
   return (
     <select {...register(name)} {...rest} onChange={(e) => rest.onChange(e.target.value)}>
       {options.map((item) => (

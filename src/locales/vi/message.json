@@ -1,0 +1,5 @@
+{
+  "required": "Trường này không được bỏ trống !",
+  "email": "Chưa đúng định dạng email !",
+  "confirmPw": "Mật khẩu chưa đúng !"
+}

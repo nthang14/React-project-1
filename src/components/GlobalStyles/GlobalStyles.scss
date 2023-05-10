@@ -5,7 +5,7 @@
 @tailwind components;
 @tailwind utilities;
 :root {
-  --primary: #231f20;
+  --primary: #111827;
   --grey: #f8f9fa;
   --yellow: #f9a252;
   --orange: #eb8923;
@@ -15,6 +15,7 @@
   --error: #dc3545;
   --info: #17a2b8;
   --success: #28a745;
+  --gray-100: #f9fafb;
 }
 * {
   box-sizing: border-box;
@@ -87,4 +88,24 @@ body {
 }
 .form__error {
   min-height: 22px;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type='number'] {
+  border-left: 1px solid var(--gray);
+  border-right: 1px solid var(--gray);
+}
+.custom-number-input input:focus {
+  outline: none !important;
+}
+
+.custom-number-input button:focus {
+  outline: none !important;
+}
+.form__input-number {
+  border: 1px solid var(--gray);
 }

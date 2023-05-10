@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next';
 import { useForm } from 'react-hook-form';
 import Form from '~/components/common/Form';
 import { useState, useEffect } from 'react';
-
+import CartSideBar from '~/components/Layouts/components/Cart';
 const cx = classNames.bind(styles);
 function Logo(props) {
   const navigate = useNavigate();
@@ -24,9 +24,10 @@ function Logo(props) {
     localStorage.setItem('language', value);
   };
   const [language, setLanguage] = useState('');
+  const [openCart, setOpenCart] = useState(false);
+
   useEffect(() => {
     if (localStorage.getItem('language')) {
-      i18n.changeLanguage(localStorage.getItem('language'));
       setLanguage(localStorage.getItem('language'));
     }
   }, []);
@@ -38,6 +39,7 @@ function Logo(props) {
         <div className="cursor-pointer flex items-center justify-center">
           <Form form={form}>
             <Select
+              form={form}
               onChange={changeLanguage}
               name="language"
               value={language}
@@ -47,9 +49,10 @@ function Logo(props) {
               ]}
             />
           </Form>
-          <FontAwesomeIcon icon={faBagShopping} size="xl" />
+          <FontAwesomeIcon icon={faBagShopping} size="xl" onClick={() => setOpenCart(true)} />
+          <CartSideBar visible={openCart} close={() => setOpenCart(false)} />
           <div className="pl-0.5">
-            <div className={`p-0.5 `} onClick={() => navigate('/login')}>
+            <div className={`p-0.5 `} onClick={() => navigate('/auth/login')}>
               <FontAwesomeIcon icon={faUser} size="lg" />
             </div>
           </div>

@@ -14,9 +14,7 @@
   width: 100%;
   display: block;
   background-color: #f7f7f7;
-  &:focus-visible {
-    border: 0.5px var(--primary);
-  }
+  border: 1px solid rgb(209 213 219 / 0.6);
 }
 
 .form__input:placeholder-shown + .form__label {

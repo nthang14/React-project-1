@@ -1,0 +1,5 @@
+{
+  "required": "Please enter field !",
+  "email": "Please enter a valid email address !",
+  "confirmPw": "Your password and confirmation password do not match !"
+}

@@ -5,16 +5,15 @@ import DetailPage from '~/pages/Detail';
 import CheckoutPage from '~/pages/Checkout';
 import EmptyLayout from '~/components/Layouts/EmptyLayout';
 
-import Login from '~/pages/Login';
+import Login from '~/pages/Auth/Login';
+import Register from '~/pages/Auth/Register';
+
 const publicRoutes = [
   {
     path: '/',
     component: HomePage,
   },
-  {
-    path: '/cart',
-    component: CartPage,
-  },
+
   {
     path: '/category/:slug',
     component: CategoryPage,
@@ -23,16 +22,27 @@ const publicRoutes = [
     path: '/product/:id',
     component: DetailPage,
   },
+
+  {
+    path: '/auth/login',
+    component: Login,
+    layout: EmptyLayout,
+  },
+  {
+    path: '/auth/register',
+    component: Register,
+    layout: EmptyLayout,
+  },
+];
+const privateRoutes = [
+  {
+    path: '/cart',
+    component: CartPage,
+  },
   {
     path: '/checkout',
     component: CheckoutPage,
     layout: EmptyLayout,
   },
-  {
-    path: '/login',
-    component: Login,
-    layout: EmptyLayout,
-  },
 ];
-const privateRoutes = {};
 export { publicRoutes, privateRoutes };
