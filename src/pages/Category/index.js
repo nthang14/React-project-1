@@ -20,13 +20,10 @@ function Category() {
     };
     fetchProductByCategory();
   }, [slug]);
-  const handleQuickView = useCallback(
-    (item) => {
-      setIsOpen(true);
-      setProduct(item);
-    },
-    [product],
-  );
+  const handleQuickView = useCallback((item) => {
+    setIsOpen(true);
+    setProduct(item);
+  }, []);
   const { t, i18n } = useTranslation(['home', 'category']);
   return (
     <div className={`category-page container mx-auto pt-0.5`}>

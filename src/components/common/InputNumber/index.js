@@ -1,6 +1,6 @@
-function InputNumber({ label, onChange, onUpArrow, onDownArrow, ...rest }) {
+function InputNumber({ label, onUpArrow, onDownArrow, ...rest }) {
   return (
-    <div className="custom-number-input h-10 w-32">
+    <div className="custom-number-input">
       <label htmlFor="custom-input-number" className="w-full text-gray-700 font-semibold">
         {label}
       </label>
@@ -13,13 +13,7 @@ function InputNumber({ label, onChange, onUpArrow, onDownArrow, ...rest }) {
           >
             <span className="m-auto  font-thin">−</span>
           </button>
-          <input
-            type="number"
-            className="outline-none w-3 focus:outline-none text-center bg-gray-300 font-semibold  hover:text-black focus:text-black  md:text-basecursor-default flex items-center text-gray-700  outline-none"
-            name="custom-input-number"
-            {...rest}
-            onChange={(e) => onChange(e.target.value)}
-          ></input>
+          <div className="w-2 h-1 text-center input-number">{rest.value}</div>
           <button
             onClick={onUpArrow}
             data-action="increment"

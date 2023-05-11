@@ -1,12 +1,15 @@
 import classNames from 'classnames/bind';
 import styles from './Product.module.scss';
-import { useState } from 'react';
+import { useState, memo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from '~/components/common/Button';
+import { useTranslation } from 'react-i18next';
+
 const cx = classNames.bind(styles);
 
 function Product({ product, handleQuickView }) {
   const navigate = useNavigate();
+  const { t } = useTranslation(['common']);
   const [isQuickView, setIsQuickVIew] = useState(false);
   return (
     <div className="pt-0.5 pb-0.5" onMouseEnter={() => setIsQuickVIew(true)} onMouseLeave={() => setIsQuickVIew(false)}>
@@ -15,6 +18,7 @@ function Product({ product, handleQuickView }) {
           className="category-product__image"
           src={product.image}
           alt={product.title}
+          loading="lazy"
           onClick={() => {
             navigate(`/product/${product.id}`);
           }}
@@ -25,7 +29,7 @@ function Product({ product, handleQuickView }) {
               className={`bg-sky-400 hover:bg-sky-500 text-white font-bold flex items-center justify-around`}
               onClick={handleQuickView}
             >
-              <div className="text-white font-bold">Quick view</div>
+              <div className="text-white font-bold">{t('addToCart')}</div>
             </Button>
           </div>
         )}
@@ -42,4 +46,4 @@ function Product({ product, handleQuickView }) {
     </div>
   );
 }
-export default Product;
+export default memo(Product);

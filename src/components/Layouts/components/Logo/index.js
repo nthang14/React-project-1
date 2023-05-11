@@ -9,6 +9,7 @@ import { useForm } from 'react-hook-form';
 import Form from '~/components/common/Form';
 import { useState, useEffect } from 'react';
 import CartSideBar from '~/components/Layouts/components/Cart';
+import ListProductsInCart from '~/components/pages/Cart/ListProductsInCart';
 const cx = classNames.bind(styles);
 function Logo(props) {
   const navigate = useNavigate();
@@ -35,7 +36,16 @@ function Logo(props) {
     <div className="bg-grey">
       <div className={`container mx-auto header-logo py-0.5 flex items-center justify-between`}>
         <div></div>
-        <div>{props.image && <img className={`${cx('header-logo__image')} cursor-pointer`} src={props.image} />}</div>
+        <div>
+          {props.image && (
+            <img
+              onClick={() => navigate('/')}
+              className={`${cx('header-logo__image')} cursor-pointer`}
+              src={props.image}
+              alt="logo"
+            />
+          )}
+        </div>
         <div className="cursor-pointer flex items-center justify-center">
           <Form form={form}>
             <Select
@@ -50,7 +60,9 @@ function Logo(props) {
             />
           </Form>
           <FontAwesomeIcon icon={faBagShopping} size="xl" onClick={() => setOpenCart(true)} />
-          <CartSideBar visible={openCart} close={() => setOpenCart(false)} />
+          <CartSideBar visible={openCart} close={() => setOpenCart(false)}>
+            <ListProductsInCart />
+          </CartSideBar>
           <div className="pl-0.5">
             <div className={`p-0.5 `} onClick={() => navigate('/auth/login')}>
               <FontAwesomeIcon icon={faUser} size="lg" />

@@ -30,10 +30,9 @@ function LoginForm({ onSubmit }) {
     resolver: yupResolver(schema),
   });
   const handleSubmit = async (value) => {
-    const result = await authApi.login(value);
-    const token = result.token;
+    const { token } = await authApi.login(value);
     localStorage.setItem('token', token);
-    if (!!result) {
+    if (!!token) {
       navigate('/');
     }
   };

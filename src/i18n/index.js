@@ -10,6 +10,8 @@ import MESSAGE_EN from '~/locales/en/message.json';
 import MESSAGE_VI from '~/locales/vi/message.json';
 import COMMON_EN from '~/locales/en/common.json';
 import COMMON_VI from '~/locales/vi/common.json';
+import CART_EN from '~/locales/en/cart.json';
+import CART_VI from '~/locales/vi/cart.json';
 const resources = {
   en: {
     // namespace
@@ -18,6 +20,7 @@ const resources = {
     auth: AUTH_EN,
     message: MESSAGE_EN,
     common: COMMON_EN,
+    cart: CART_EN,
   },
   vi: {
     home: HOME_VI,
@@ -25,13 +28,14 @@ const resources = {
     auth: AUTH_VI,
     message: MESSAGE_VI,
     common: COMMON_VI,
+    cart: CART_VI,
   },
 };
 const defaultNS = 'home';
 i18n.use(initReactI18next).init({
   resources: resources,
   lng: 'vi',
-  ns: ['home', 'category', 'auth', 'message', 'common'],
+  ns: ['home', 'category', 'auth', 'message', 'common', 'cart'],
   fallbackLng: 'vi',
   defaultNS: defaultNS,
   interpolation: {

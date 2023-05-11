@@ -38,11 +38,12 @@ const privateRoutes = [
   {
     path: '/cart',
     component: CartPage,
+    layout: null,
   },
   {
     path: '/checkout',
     component: CheckoutPage,
-    layout: EmptyLayout,
+    layout: null,
   },
 ];
 export { publicRoutes, privateRoutes };
