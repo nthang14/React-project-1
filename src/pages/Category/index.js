@@ -4,22 +4,27 @@ import productApi from '~/api/product';
 import Product from '~/components/pages/Category/Product';
 import ProductImage from '~/components/pages/Product/ProductImage';
 import ProductDescription from '~/components/pages/Product/ProductDescription';
-
 import Modal from '~/components/common/Modal';
 import { useTranslation } from 'react-i18next';
+import { useDispatch, useSelector } from 'react-redux';
+import { getProductByCollection, getAllProduct } from '~/store/product';
+import productsData from '~/utils/constants/mock-data/mockProductData';
 
 function Category() {
   const { slug } = useParams();
-  const [products, setProducts] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const [product, setProduct] = useState({});
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getAllProduct(productsData));
+  }, []);
   useEffect(() => {
     const fetchProductByCategory = async () => {
-      const data = await productApi.getProductsByCategory(slug);
-      setProducts(data);
+      dispatch(getProductByCollection(slug));
     };
     fetchProductByCategory();
   }, [slug]);
+  const products = useSelector((state) => state.product);
   const handleQuickView = useCallback((item) => {
     setIsOpen(true);
     setProduct(item);

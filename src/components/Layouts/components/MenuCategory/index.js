@@ -1,41 +1,42 @@
 import classNames from 'classnames/bind';
 import styles from './MenuCategory.module.scss';
 import React, { useEffect, useState } from 'react';
-import category from '~/api/category';
+// import category from '~/api/category';
 import { useNavigate } from 'react-router-dom';
+import collectionsData from '~/utils/constants/mock-data/mockCollectionData.js';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllCollection } from '~/store/collection';
 const cx = classNames.bind(styles);
-
 function MenuCategory() {
-  const [menu, setMenu] = useState([]);
   const [menuActive, setMenuActive] = useState(null);
-  useEffect(() => {
-    const fetchMenu = async () => {
-      const data = await category.getAllCategory();
-      setMenu(data);
-    };
-    fetchMenu();
-  }, []);
-
+  const dispatch = useDispatch();
   let navigate = useNavigate();
   const handleClick = (item) => {
-    navigate(`/category/${item}`);
+    navigate(`/category/${item.handle}`);
   };
+  const handleMouseEnter = (item) => {
+    setMenuActive(item);
+  };
+  useEffect(() => {
+    dispatch(getAllCollection(collectionsData));
+  }, []);
+  const collections = useSelector((state) => state.collection.collections);
   return (
     <div className={`${cx('mega-menu')} shadow-sm relative`} onMouseLeave={() => setMenuActive(null)}>
       <div className={`container mx-auto flex align-center justify-start`}>
-        {menu.map((item) => {
+        {collections.map((item) => {
           return (
             <div
-              onClick={() => handleClick(item)}
-              key={item}
+              onMouseEnter={() => handleMouseEnter(item)}
+              key={item.handle}
               className={`${cx(`mega-menu__item`)} capitalize py-0.5 mr-1.5 cursor-pointer font-bold`}
             >
-              {item}
+              {item.title}
             </div>
           );
         })}
       </div>
-      {/* {menuActive && (
+      {menuActive && (
         <div className={`absolute w-full ${cx('mega-menu__sub')}`}>
           <div className={`bg-white`} onMouseLeave={() => setMenuActive(null)}>
             <div className={`container mx-auto py-0.5`}>
@@ -44,7 +45,7 @@ function MenuCategory() {
                   menuActive.children.map((item) => {
                     return (
                       <div key={`submenu-${item.handle}`}>
-                        <div className={`sub-menu font-bold`}>{item.name}</div>
+                        <div className={`sub-menu font-bold`}>{item.title}</div>
                         {item.children &&
                           item.children.map((subMenu) => {
                             return (
@@ -53,7 +54,7 @@ function MenuCategory() {
                                 onClick={() => handleClick(subMenu)}
                                 className={`cursor-pointer font-light hover:underline py-px`}
                               >
-                                {subMenu.name}
+                                {subMenu.title}
                               </div>
                             );
                           })}
@@ -64,7 +65,7 @@ function MenuCategory() {
             </div>
           </div>
         </div>
-      )} */}
+      )}
     </div>
   );
 }
