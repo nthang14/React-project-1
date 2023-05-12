@@ -18,12 +18,15 @@ function App() {
   return (
     <HelmetProvider>
       <Helmet>
-        <title>Hello World</title>
-        <link rel="canonical" href="https://www.tacobell.com/" />
+        <title>Newchic</title>
+        <meta name="title" content="How to set GitHub credentials for macOS" />
         <meta
-          property="og:image"
-          content="https://minio.lattehub.com/img/240/240/resize/6132e7b418347c0008ac3de4/2021/09/19/latte-image-61467ef6052d8ed2b6722dbd.jpeg"
-        ></meta>
+          name="description"
+          content="Set up GitHub authentication so you can use it from VS Code or the command line"
+        />
+        <meta name="type" content="article" />
+        <meta name="url" content="https://flaviocopes.com/setup-github-credentials-macos/" />
+        <meta name="image" content="https://flaviocopes.com/img/avatar.png" />
       </Helmet>
       <Router>
         <div className="App">
