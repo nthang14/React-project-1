@@ -33,8 +33,6 @@ const publicRoutes = [
     component: Register,
     layout: EmptyLayout,
   },
-];
-const privateRoutes = [
   {
     path: '/cart',
     component: CartPage,
@@ -46,4 +44,5 @@ const privateRoutes = [
     layout: null,
   },
 ];
+const privateRoutes = [];
 export { publicRoutes, privateRoutes };

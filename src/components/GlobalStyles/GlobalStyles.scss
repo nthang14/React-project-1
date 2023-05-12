@@ -109,3 +109,9 @@ input[type='number']::-webkit-outer-spin-button {
 .form__input-number {
   border: 1px solid var(--gray);
 }
+.checkout-page__information {
+  border-right: 2px solid var(--gray);
+}
+.checkout-page__list {
+  border-left: 2px solid var(--gray);
+}

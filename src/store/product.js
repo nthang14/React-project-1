@@ -4,17 +4,19 @@ const product = createSlice({
   initialState: {
     allProduct: [],
     products: [],
+    isDialog: false,
   },
   reducers: {
     getProductByCollection: (state, action) => {
-      // const productByCollectionHandle = state.allProduct.find((item) => item.collectionHandle === action.payload);
-      console.log('productByCollectionHandle', state.allProduct, action);
-      // state.products = [...productByCollectionHandle.products];
+      const { allProducts, collectionHandle } = action.payload;
+      const productByCollectionHandle = allProducts.find((item) => item.collectionHandle === collectionHandle);
+      state.products = [...productByCollectionHandle.products];
     },
     getAllProduct: (state, action) => {
-      console.log('action', action);
       state.allProduct = [...action.payload];
-      console.log('action2', state.allProduct);
+    },
+    setDialog: (state, action) => {
+      state.isDialog = action.payload;
     },
   },
 });

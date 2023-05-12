@@ -1,7 +1,10 @@
+import { imageResizeURL } from '~/utils/helpers/index';
+
 function ProductImage({ product, ...rest }) {
+  const { _source } = product;
   return (
-    <div className="flex items-center justify-center">
-      <img className="w-10" src={product.image} alt={product.title} loading="lazy" />
+    <div className="flex items-center justify-center border">
+      <img className="w-full h-auto" src={imageResizeURL(_source.image, 400, 400)} alt={_source.title} loading="lazy" />
     </div>
   );
 }
