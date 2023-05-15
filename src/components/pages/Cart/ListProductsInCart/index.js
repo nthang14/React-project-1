@@ -15,7 +15,11 @@ function ListProductsInCart() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    dispatch(getCurrentCart(JSON.parse(localStorage.getItem('cart/current') || [])));
+    dispatch(
+      getCurrentCart(
+        JSON.parse(localStorage.getItem('cart/current')) ? JSON.parse(localStorage.getItem('cart/current')) : [],
+      ),
+    );
   }, []);
   const currentCart = useSelector((state) => state.cart.currentCart);
 

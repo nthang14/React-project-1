@@ -22,7 +22,6 @@ function Category() {
   }, [slug]);
   const products = useSelector((state) => state.product.products);
   const handleQuickView = useCallback((item) => {
-    console.log('item', item);
     setIsOpen(true);
     setProduct(item);
   }, []);

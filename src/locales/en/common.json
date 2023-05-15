@@ -1,3 +1,5 @@
 {
-  "addToCart": "Add To Cart"
+  "addToCart": "Add To Cart",
+  "shippingMethod": "Continue to shipping method",
+  "paymentMethod": "Continue to payment method"
 }

@@ -115,3 +115,31 @@ input[type='number']::-webkit-outer-spin-button {
 .checkout-page__list {
   border-left: 2px solid var(--gray);
 }
+.shipping-method {
+  border-radius: 5px;
+  border: 1px solid rgb(184, 184, 184);
+  &__item {
+    border-bottom: 1px solid rgb(221, 218, 218);
+    padding-bottom: 5px;
+  }
+}
+.checkout-total {
+  border-top: 1px solid rgb(221, 218, 218);
+}
+.checkout-quantity {
+  font-size: 12px;
+  font-weight: 700;
+  right: 25%;
+  top: -10%;
+  width: 25px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #939494;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.home-title {
+  font-size: 22px;
+}

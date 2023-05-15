@@ -5,6 +5,8 @@ import { useNavigate } from 'react-router-dom';
 import Button from '~/components/common/Button';
 import { useTranslation } from 'react-i18next';
 import { imageResizeURL } from '~/utils/helpers/index';
+import { useParams } from 'react-router-dom';
+
 const cx = classNames.bind(styles);
 
 function Product({ product, handleQuickView }) {
@@ -12,6 +14,8 @@ function Product({ product, handleQuickView }) {
   const navigate = useNavigate();
   const { t } = useTranslation(['common']);
   const [isQuickView, setIsQuickVIew] = useState(false);
+  const { slug } = useParams();
+
   return (
     <div className="pt-0.5 pb-0.5" onMouseEnter={() => setIsQuickVIew(true)} onMouseLeave={() => setIsQuickVIew(false)}>
       <div className="flex align-center justify-center cursor-pointer relative">
@@ -21,7 +25,7 @@ function Product({ product, handleQuickView }) {
           alt={_source.name}
           loading="lazy"
           onClick={() => {
-            navigate(`/product/${_id}`);
+            navigate(`/product/${_id}?collectionHandle=${slug}`);
           }}
         />
         {isQuickView && (
@@ -38,7 +42,7 @@ function Product({ product, handleQuickView }) {
       <div
         className={`category-product__title text-one-line pt-0.5 hover:underline cursor-pointer`}
         onClick={() => {
-          navigate(`/product/${_id}`);
+          navigate(`/product/${_id}?collectionHandle=${slug}`);
         }}
       >
         {_source.name}

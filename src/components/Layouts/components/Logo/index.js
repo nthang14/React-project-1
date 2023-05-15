@@ -63,11 +63,11 @@ function Logo(props) {
           <CartSideBar visible={openCart} close={() => setOpenCart(false)}>
             <ListProductsInCart />
           </CartSideBar>
-          <div className="pl-0.5">
+          {/* <div className="pl-0.5">
             <div className={`p-0.5 `} onClick={() => navigate('/auth/login')}>
               <FontAwesomeIcon icon={faUser} size="lg" />
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

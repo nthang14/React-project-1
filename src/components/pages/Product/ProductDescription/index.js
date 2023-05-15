@@ -4,10 +4,12 @@ import Button from '~/components/common/Button';
 import { useTranslation } from 'react-i18next';
 import { addToCart } from '~/store/cart';
 import { useDispatch } from 'react-redux';
+
 function ProductDescription({ product, ...rest }) {
   const { _source, _id } = product;
   const { t } = useTranslation('common');
   const [quantity, setQuantity] = useState(1);
+
   const dispatch = useDispatch();
   const handleAddToCart = () => {
     const payload = {

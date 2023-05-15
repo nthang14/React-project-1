@@ -35,9 +35,10 @@ const defaultNS = 'home';
 i18n.use(initReactI18next).init({
   resources: resources,
   lng: 'vi',
-  ns: ['home', 'category', 'auth', 'message', 'common', 'cart'],
+  ns: ['home', 'category', 'auth', 'message', '', 'cart'],
   fallbackLng: 'vi',
   defaultNS: defaultNS,
+  fallbackNS: 'common',
   interpolation: {
     escapeValue: false, // react already safes from xss => https://www.i18next.com/translation-function/interpolation#unescape
   },

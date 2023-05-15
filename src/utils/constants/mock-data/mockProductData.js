@@ -18295,7 +18295,7 @@ const productsData = [
     ],
   },
   {
-    collectionhandle: 'handbag-xdlcu',
+    collectionHandle: 'handbag-xdlcu',
     products: [
       {
         _index: 'vue_storefront_catalog_product_202110071504',
@@ -19686,7 +19686,7 @@ const productsData = [
     ],
   },
   {
-    collectionsHandle: 'leather-tote-bag',
+    collectionHandle: 'leather-tote-bag',
     products: [
       {
         _index: 'vue_storefront_catalog_product_202110071504',

@@ -1,3 +1,5 @@
 {
-  "addToCart": "Thêm vào giỏ"
+  "addToCart": "Thêm vào giỏ",
+  "shippingMethod": "Phương thức vận chuyển",
+  "paymentMethod": "Thanh toán"
 }
