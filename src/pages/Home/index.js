@@ -1,5 +1,8 @@
 import Banner from '~/components/pages/Home/Banner';
 import Collection from '~/components/pages/Home/Collection';
+import ModalWelcome from '~/components/pages/Home/ModalWelcome';
+import PickForYou from '~/components/pages/Home/PickForYou';
+import BestSeller from '~/components/pages/Home/BestSeller';
 import homeDate from '~/utils/constants/mock-data/homeData';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
@@ -18,6 +21,15 @@ function Home() {
           <Banner data={setting.banner} />
           <div className="pt-1.5 container mx-auto">
             <Collection data={setting.collections} />
+          </div>
+          <div>
+            <ModalWelcome data={setting.modalWelcome} />
+          </div>
+          <div className="pt-1.5 container mx-auto">
+            <PickForYou data={setting.pickForYou} />
+          </div>
+          <div className="pt-1.5 container mx-auto">
+            <BestSeller data={setting.bestSeller} />
           </div>
         </div>
       )}
