@@ -998,5 +998,13 @@ const homeData = {
       },
     ],
   },
+  flashDeal: {
+    title: 'Under $10 Flash Deals!',
+    data: {
+      dateEnd: 'May 20, 2023 01:15:00:526',
+      image:
+        'https://minio.lattehub.com/img/200/200/resize/6163b9b2eb5df8000888a0ea/2021/10/29/lattehub-image-617baaae5dd948b7599e8329.png',
+    },
+  },
 };
 export default homeData;

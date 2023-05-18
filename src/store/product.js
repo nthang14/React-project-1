@@ -4,7 +4,7 @@ const product = createSlice({
   initialState: {
     allProduct: [],
     products: [],
-    isDialog: false,
+    isModal: false,
     productDetail: {},
   },
   reducers: {
@@ -16,15 +16,19 @@ const product = createSlice({
     getAllProduct: (state, action) => {
       state.allProduct = [...action.payload];
     },
-    setDialog: (state, action) => {
-      state.isDialog = action.payload;
-    },
+
     getProductById: (state, action) => {
       console.log(current(state.products));
       state.productDetail = state.products.find((item) => item._id === action.payload);
     },
+    setModal: (state, action) => {
+      state.isModal = action.payload;
+    },
+    setProductDetail: (state, action) => {
+      state.productDetail = action.payload;
+    },
   },
 });
 const { actions, reducer } = product;
-export const { getAllProduct, getProductByCollection, getProductById } = actions;
+export const { getAllProduct, getProductByCollection, getProductById, setModal, setProductDetail } = actions;
 export default reducer;

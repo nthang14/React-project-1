@@ -9,13 +9,12 @@ import { useParams } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
-function Product({ product, handleQuickView }) {
+function Product({ product, handleQuickView, ...rest }) {
   const { _id, _source } = product;
   const navigate = useNavigate();
   const { t } = useTranslation(['common']);
   const [isQuickView, setIsQuickVIew] = useState(false);
   const { slug } = useParams();
-
   return (
     <div className="pt-0.5 pb-0.5" onMouseEnter={() => setIsQuickVIew(true)} onMouseLeave={() => setIsQuickVIew(false)}>
       <div className="flex align-center justify-center cursor-pointer relative">
@@ -28,7 +27,7 @@ function Product({ product, handleQuickView }) {
             navigate(`/product/${_id}?collectionHandle=${slug}`);
           }}
         />
-        {isQuickView && (
+        {isQuickView && rest.isModal && (
           <div className={`absolute z-50 ${cx('product-button-quick-view')}`}>
             <Button
               className={`hover:bg-yellow bg-orange text-white font-bold flex items-center justify-around`}

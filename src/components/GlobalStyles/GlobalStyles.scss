@@ -143,3 +143,8 @@ input[type='number']::-webkit-outer-spin-button {
 .home-title {
   font-size: 22px;
 }
+.flash-deal__time {
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 13%;
+}

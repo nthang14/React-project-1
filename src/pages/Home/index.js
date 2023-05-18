@@ -3,6 +3,7 @@ import Collection from '~/components/pages/Home/Collection';
 import ModalWelcome from '~/components/pages/Home/ModalWelcome';
 import PickForYou from '~/components/pages/Home/PickForYou';
 import BestSeller from '~/components/pages/Home/BestSeller';
+import FlashDeal from '~/components/pages/Home/FlashDeal';
 import homeDate from '~/utils/constants/mock-data/homeData';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
@@ -21,6 +22,9 @@ function Home() {
           <Banner data={setting.banner} />
           <div className="pt-1.5 container mx-auto">
             <Collection data={setting.collections} />
+          </div>
+          <div className="pt-1.5 container mx-auto">
+            <FlashDeal data={setting.flashDeal} />
           </div>
           <div>
             <ModalWelcome data={setting.modalWelcome} />
