@@ -16,7 +16,7 @@ function LoginForm({ onSubmit }) {
   const { t } = useTranslation(['auth', 'message']);
   const schema = yup
     .object({
-      username: yup.string().required(t('required', { ns: 'message' })),
+      email: yup.string().required(t('required', { ns: 'message' })),
       password: yup.string().required(t('required', { ns: 'message' })),
     })
     .required();
@@ -24,17 +24,22 @@ function LoginForm({ onSubmit }) {
   const navigate = useNavigate();
   const form = useForm({
     defaultValues: {
-      username: '',
-      password: '',
+      email: 'lappham1408@gmail.com',
+      password: 'Lappham1408',
     },
     resolver: yupResolver(schema),
   });
   const handleSubmit = async (value) => {
-    const { token } = await authApi.login(value);
-    localStorage.setItem('token', token);
-    if (!!token) {
-      navigate('/');
-    }
+    console.log('test 1');
+
+    const result = await authApi.login(value);
+    console.log('test 2', result);
+    localStorage.setItem('access-token', result.accessToken);
+    localStorage.setItem('refresh-token', result.refreshToken);
+
+    // if (!!token) {
+    //   navigate('/');
+    // }
   };
   return (
     <div className={`${cx('form__login')} bg-white`}>
@@ -46,7 +51,7 @@ function LoginForm({ onSubmit }) {
         />
       </div>
       <Form onSubmit={handleSubmit} form={form}>
-        <Input name="username" label={t('userName')} placeholder={t('userName')} type="text" form={form} />
+        <Input name="email" label={t('email')} placeholder={t('email')} type="text" form={form} />
         <Input name="password" label={t('password')} placeholder={t('password')} type="password" form={form} />
         <Button type="submit" className={``}>
           {t('singIn')}

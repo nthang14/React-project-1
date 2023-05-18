@@ -15,6 +15,7 @@ function Category() {
   useEffect(() => {
     const fetchProductByCategory = async () => {
       dispatch(getProductByCollection({ allProducts: productsData, collectionHandle: slug }));
+      productApi.getAllProduct();
     };
     fetchProductByCategory();
   }, [slug]);

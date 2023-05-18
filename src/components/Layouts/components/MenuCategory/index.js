@@ -1,11 +1,11 @@
 import classNames from 'classnames/bind';
 import styles from './MenuCategory.module.scss';
 import React, { useEffect, useState } from 'react';
-// import category from '~/api/category';
+import categoryApi from '~/api/category';
 import { useNavigate } from 'react-router-dom';
 import collectionsData from '~/utils/constants/mock-data/mockCollectionData.js';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllCollection } from '~/store/collection';
+import { getAllCollection, getAllCategory } from '~/store/collection';
 const cx = classNames.bind(styles);
 function MenuCategory() {
   const [menuActive, setMenuActive] = useState(null);
@@ -19,6 +19,12 @@ function MenuCategory() {
   };
   useEffect(() => {
     dispatch(getAllCollection(collectionsData));
+  }, []);
+  useEffect(() => {
+    const fetchAllCollection = async () => {
+      await categoryApi.getAllCategory();
+    };
+    fetchAllCollection();
   }, []);
   const collections = useSelector((state) => state.collection.collections);
   return (
