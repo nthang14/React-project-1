@@ -7,6 +7,9 @@ const api = axios.create({
   baseURL: 'https://accounts.lattehub.com/api',
   headers: {
     'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'POST,PATCH,OPTIONS',
+    'Access-Control-Allow-Credentials': true,
   },
 });
 // }

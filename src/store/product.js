@@ -5,7 +5,7 @@ const product = createSlice({
     allProduct: [],
     products: [],
     isModal: false,
-    productDetail: {},
+    productDetail: null,
   },
   reducers: {
     getProductByCollection: (state, action) => {
@@ -16,7 +16,6 @@ const product = createSlice({
     },
 
     getProductById: (state, action) => {
-      console.log(current(state.products));
       state.productDetail = state.products.find((item) => item._id === action.payload);
     },
     setModal: (state, action) => {

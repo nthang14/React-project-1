@@ -77,6 +77,12 @@ body {
   overflow: hidden;
   -webkit-line-clamp: 1;
 }
+.text-two-line {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+}
 .modal-min-width {
   min-width: 700px;
 }

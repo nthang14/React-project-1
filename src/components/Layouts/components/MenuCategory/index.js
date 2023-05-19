@@ -12,7 +12,6 @@ function MenuCategory() {
   const dispatch = useDispatch();
   let navigate = useNavigate();
   const handleClick = (item) => {
-    console.log('item', item);
     navigate(`/category/${item._id}`);
   };
   const handleMouseEnter = (item) => {
@@ -42,6 +41,7 @@ function MenuCategory() {
           );
         })}
       </div>
+
       {/* {menuActive && (
         <div className={`absolute w-full ${cx('mega-menu__sub')}`}>
           <div className={`bg-white`} onMouseLeave={() => setMenuActive(null)}>

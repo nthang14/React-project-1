@@ -13,6 +13,9 @@ function Home() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getConfig(homeDate));
+    fetch('http://localhost:8080/').then((res) => {
+      console.log('res', res, res.json());
+    });
   });
   const setting = useSelector((state) => state.home.setting);
   return (
@@ -21,11 +24,12 @@ function Home() {
         <div className="pb-2">
           <Banner data={setting.banner} />
           <div className="pt-1.5 container mx-auto">
-            <Collection data={setting.collections} />
-          </div>
-          <div className="pt-1.5 container mx-auto">
             <FlashDeal data={setting.flashDeal} />
           </div>
+          <div className="pt-1.5 container mx-auto">
+            <Collection data={setting.collections} />
+          </div>
+
           <div>
             <ModalWelcome data={setting.modalWelcome} />
           </div>

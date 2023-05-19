@@ -4,6 +4,5 @@ const auth = {
   login(data) {
     return api.post(resource, data);
   },
-  // refreshToken()
 };
 export default auth;

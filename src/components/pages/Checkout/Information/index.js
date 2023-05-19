@@ -48,10 +48,8 @@ function Information() {
     searchParams.set('step', 'payment');
     setSearchParams(searchParams);
   };
-  console.log('Information', Information);
 
   useEffect(() => {
-    console.log('Information', Information);
     if (!Information) {
       searchParams.set('step', 'customer-infomations');
       setSearchParams(searchParams);

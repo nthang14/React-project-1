@@ -5,7 +5,7 @@ function ProductImage({ product, ...rest }) {
     <div className="flex items-center justify-center border">
       <img
         className="w-full h-auto"
-        src={imageResizeURL(product?.images[0]?.src, 400, 400)}
+        src={imageResizeURL(product?.variantDefault?.imageSrc || product?.images[0]?.src, 400, 400)}
         alt={product.title}
         loading="lazy"
       />

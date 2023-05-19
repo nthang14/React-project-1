@@ -24,8 +24,8 @@ function LoginForm({ onSubmit }) {
   const navigate = useNavigate();
   const form = useForm({
     defaultValues: {
-      email: 'lappham1408@gmail.com',
-      password: 'Lappham1408',
+      email: '',
+      password: '',
     },
     resolver: yupResolver(schema),
   });
