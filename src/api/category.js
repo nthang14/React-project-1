@@ -7,5 +7,8 @@ const category = {
   getAllProductByCategory(id) {
     return api.get(`${source_category}/${id}`);
   },
+  getCollectionDetail(id) {
+    return api.get(`${source_category}/${id}`);
+  },
 };
 export default category;

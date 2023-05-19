@@ -9,9 +9,7 @@ const product = createSlice({
   },
   reducers: {
     getProductByCollection: (state, action) => {
-      const { allProducts, collectionHandle } = action.payload;
-      const productByCollectionHandle = allProducts.find((item) => item.collectionHandle === collectionHandle);
-      state.products = [...productByCollectionHandle.products];
+      state.products = [...action.payload];
     },
     getAllProduct: (state, action) => {
       state.allProduct = [...action.payload];

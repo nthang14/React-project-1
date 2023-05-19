@@ -20,11 +20,11 @@ function Product({ product, handleQuickView, ...rest }) {
       <div className="flex align-center justify-center cursor-pointer relative">
         <img
           className="category-product__image"
-          src={imageResizeURL(_source.image)}
-          alt={_source.name}
+          src={imageResizeURL(product?.variantDefault?.imageSrc || product?.images[0].src)}
+          alt={product.title}
           loading="lazy"
           onClick={() => {
-            navigate(`/product/${_id}?collectionHandle=${slug}`);
+            navigate(`/product/${product._id}`);
           }}
         />
         {isQuickView && rest.isModal && (
@@ -41,12 +41,12 @@ function Product({ product, handleQuickView, ...rest }) {
       <div
         className={`category-product__title text-one-line pt-0.5 hover:underline cursor-pointer`}
         onClick={() => {
-          navigate(`/product/${_id}?collectionHandle=${slug}`);
+          navigate(`/product/${product._id}`);
         }}
       >
-        {_source.name}
+        {product.title}
       </div>
-      <div className={`font-bold text-center text-red`}>${_source.price}</div>
+      <div className={`font-bold text-center text-red`}>${product.variantDefault.price}</div>
     </div>
   );
 }

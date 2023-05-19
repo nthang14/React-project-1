@@ -12,17 +12,17 @@ function MenuCategory() {
   const dispatch = useDispatch();
   let navigate = useNavigate();
   const handleClick = (item) => {
-    navigate(`/category/${item.handle}`);
+    console.log('item', item);
+    navigate(`/category/${item._id}`);
   };
   const handleMouseEnter = (item) => {
     setMenuActive(item);
   };
   useEffect(() => {
-    dispatch(getAllCollection(collectionsData));
-  }, []);
-  useEffect(() => {
     const fetchAllCollection = async () => {
-      await categoryApi.getAllCategory();
+      const result = await categoryApi.getAllCategory();
+      dispatch(getAllCollection(result.collections));
+      console.log('result', result);
     };
     fetchAllCollection();
   }, []);
@@ -33,7 +33,7 @@ function MenuCategory() {
         {collections.map((item) => {
           return (
             <div
-              onMouseEnter={() => handleMouseEnter(item)}
+              onClick={() => handleClick(item)}
               key={item.handle}
               className={`${cx(`mega-menu__item`)} capitalize py-0.5 mr-1.5 cursor-pointer font-bold`}
             >
@@ -42,7 +42,7 @@ function MenuCategory() {
           );
         })}
       </div>
-      {menuActive && (
+      {/* {menuActive && (
         <div className={`absolute w-full ${cx('mega-menu__sub')}`}>
           <div className={`bg-white`} onMouseLeave={() => setMenuActive(null)}>
             <div className={`container mx-auto py-0.5`}>
@@ -71,7 +71,7 @@ function MenuCategory() {
             </div>
           </div>
         </div>
-      )}
+      )} */}
     </div>
   );
 }

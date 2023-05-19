@@ -8,26 +8,25 @@ import { setModal } from '~/store/product';
 import { useDispatch } from 'react-redux';
 
 function ProductDescription({ product, ...rest }) {
-  const { _source, _id } = product;
   const { t } = useTranslation('common');
   const [quantity, setQuantity] = useState(1);
 
   const dispatch = useDispatch();
   const handleAddToCart = () => {
     const payload = {
-      image: _source.image,
-      _id,
-      price: _source.price,
+      image: product.variantDefault?.imageSrc,
+      _id: product._id,
+      price: product.variantDefault.price,
       quantity,
-      name: _source.name,
+      name: product.title,
     };
     dispatch(addToCart(payload));
     dispatch(setModal(false));
   };
   return (
     <div>
-      <div className="font-bold">{_source.name}</div>
-      <div className={`font-bold text-red pt-2`}>${_source.price}</div>
+      <div className="font-bold">{product.title}</div>
+      <div className={`font-bold text-red pt-2`}>${product.variantDefault.price}</div>
       <div className="py-1">
         <InputNumber
           value={quantity}

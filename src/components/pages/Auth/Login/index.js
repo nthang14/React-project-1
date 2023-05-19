@@ -30,16 +30,10 @@ function LoginForm({ onSubmit }) {
     resolver: yupResolver(schema),
   });
   const handleSubmit = async (value) => {
-    console.log('test 1');
-
     const result = await authApi.login(value);
-    console.log('test 2', result);
     localStorage.setItem('access-token', result.accessToken);
     localStorage.setItem('refresh-token', result.refreshToken);
-
-    // if (!!token) {
-    //   navigate('/');
-    // }
+    navigate('/');
   };
   return (
     <div className={`${cx('form__login')} bg-white`}>

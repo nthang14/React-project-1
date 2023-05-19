@@ -10,6 +10,18 @@ import Register from '~/pages/Auth/Register';
 
 const publicRoutes = [
   {
+    path: '/auth/login',
+    component: Login,
+    layout: EmptyLayout,
+  },
+  {
+    path: '/auth/register',
+    component: Register,
+    layout: EmptyLayout,
+  },
+];
+const privateRoutes = [
+  {
     path: '/',
     component: HomePage,
   },
@@ -22,17 +34,6 @@ const publicRoutes = [
     path: '/product/:id',
     component: DetailPage,
   },
-
-  {
-    path: '/auth/login',
-    component: Login,
-    layout: EmptyLayout,
-  },
-  {
-    path: '/auth/register',
-    component: Register,
-    layout: EmptyLayout,
-  },
   {
     path: '/cart',
     component: CartPage,
@@ -44,5 +45,4 @@ const publicRoutes = [
     layout: null,
   },
 ];
-const privateRoutes = [];
 export { publicRoutes, privateRoutes };
